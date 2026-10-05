@@ -32,7 +32,6 @@ export const CalculatorsModule: React.FC = () => {
   // Thermal load inputs
   const [areaM2, setAreaM2] = useState<number>(25);
   const [peopleCount, setPeopleCount] = useState<number>(2);
-  const [electronicsW, setElectronicsW] = useState<number>(400);
   const [sunExposure, setSunExposure] = useState<'baja' | 'media' | 'alta'>('media');
 
   // PT lookup input
@@ -41,7 +40,7 @@ export const CalculatorsModule: React.FC = () => {
   // Calculations
   const shResult = calculateSuperheat(selectedRefrigerantId, shPressure, shLineTemp);
   const scResult = calculateSubcooling(selectedRefrigerantId, scPressure, scLineTemp);
-  const thermalResult = calculateThermalLoadFrigorias(areaM2, peopleCount, electronicsW, sunExposure);
+  const thermalResult = calculateThermalLoadFrigorias(areaM2, peopleCount, 0, sunExposure);
   const ptSatTemp = Math.round(getSaturationTempC(selectedRefrigerantId, ptPressureInput) * 10) / 10;
 
   return (
@@ -418,21 +417,37 @@ export const CalculatorsModule: React.FC = () => {
       {/* Tab 3: Thermal Load Frigorias */}
       {activeSubTab === 'btu' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-7 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">
+          <div className="lg:col-span-7 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-5">
             <h3 className="text-sm font-bold text-frost-900 dark:text-white uppercase tracking-wider font-mono pb-2 border-b border-frost-100 dark:border-white/10">
               Datos del Recinto para Balance Térmico
             </h3>
 
+            {/* Superficie de la Habitación con Input Numérico y Slider */}
             <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
+              <div className="flex items-center justify-between text-xs font-semibold mb-1.5">
                 <span className="text-frost-700 dark:text-frost-300">Superficie de la Habitación:</span>
-                <span className="font-mono text-refri-500 font-bold">{areaM2} m²</span>
+                <div className="flex items-center gap-1.5 bg-frost-50 dark:bg-ink-950 px-2.5 py-1 rounded-xl border border-frost-200 dark:border-white/10 shadow-inner">
+                  <input
+                    type="number"
+                    min="1"
+                    max="500"
+                    value={areaM2 || ''}
+                    onChange={(e) => {
+                      const val = e.target.value === '' ? 0 : Number(e.target.value);
+                      setAreaM2(val);
+                    }}
+                    className="w-14 bg-transparent font-mono font-bold text-refri-500 text-right focus:outline-none text-xs"
+                    placeholder="0"
+                    aria-label="Superficie en metros cuadrados"
+                  />
+                  <span className="text-[11px] font-mono text-frost-500 font-semibold">m²</span>
+                </div>
               </div>
               <input
                 type="range"
                 min="5"
                 max="100"
-                value={areaM2}
+                value={Math.min(100, Math.max(5, areaM2))}
                 onChange={(e) => setAreaM2(Number(e.target.value))}
                 className="w-full accent-refri-500 cursor-pointer"
               />
@@ -443,16 +458,32 @@ export const CalculatorsModule: React.FC = () => {
               </div>
             </div>
 
+            {/* Ocupantes Habituales con Input Numérico y Slider */}
             <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
+              <div className="flex items-center justify-between text-xs font-semibold mb-1.5">
                 <span className="text-frost-700 dark:text-frost-300">Ocupantes habituales:</span>
-                <span className="font-mono text-refri-500 font-bold">{peopleCount} personas</span>
+                <div className="flex items-center gap-1.5 bg-frost-50 dark:bg-ink-950 px-2.5 py-1 rounded-xl border border-frost-200 dark:border-white/10 shadow-inner">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={peopleCount || ''}
+                    onChange={(e) => {
+                      const val = e.target.value === '' ? 0 : Number(e.target.value);
+                      setPeopleCount(val);
+                    }}
+                    className="w-12 bg-transparent font-mono font-bold text-refri-500 text-right focus:outline-none text-xs"
+                    placeholder="0"
+                    aria-label="Cantidad de personas"
+                  />
+                  <span className="text-[11px] font-mono text-frost-500 font-semibold">pers.</span>
+                </div>
               </div>
               <input
                 type="range"
                 min="1"
                 max="25"
-                value={peopleCount}
+                value={Math.min(25, Math.max(1, peopleCount))}
                 onChange={(e) => setPeopleCount(Number(e.target.value))}
                 className="w-full accent-refri-500 cursor-pointer"
               />
@@ -463,27 +494,7 @@ export const CalculatorsModule: React.FC = () => {
               </div>
             </div>
 
-            <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
-                <span className="text-frost-700 dark:text-frost-300">Aparatos Eléctricos / Iluminación:</span>
-                <span className="font-mono text-refri-500 font-bold">{electronicsW} Watts</span>
-              </div>
-              <input
-                type="range"
-                min="100"
-                max="3000"
-                step="50"
-                value={electronicsW}
-                onChange={(e) => setElectronicsW(Number(e.target.value))}
-                className="w-full accent-refri-500 cursor-pointer"
-              />
-              <div className="flex justify-between text-[10px] text-frost-400 font-mono mt-0.5">
-                <span>100 W</span>
-                <span>Conversión disipación: 1 W = 0.86 fg/h</span>
-                <span>3000 W</span>
-              </div>
-            </div>
-
+            {/* Incidencia Solar */}
             <div>
               <label className="text-xs font-semibold text-frost-700 dark:text-frost-300 block mb-1.5">Incidencia Solar en la Estancia:</label>
               <div className="grid grid-cols-3 gap-2">
@@ -493,7 +504,7 @@ export const CalculatorsModule: React.FC = () => {
                     onClick={() => setSunExposure(lvl)}
                     className={`py-2 px-3 rounded-xl text-xs font-bold capitalize transition-all border ${
                       sunExposure === lvl
-                        ? 'bg-amber-500 text-white border-amber-600'
+                        ? 'bg-amber-500 text-white border-amber-600 shadow-sm'
                         : 'bg-frost-100 dark:bg-ink-800 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-200 dark:hover:bg-ink-700'
                     }`}
                   >
