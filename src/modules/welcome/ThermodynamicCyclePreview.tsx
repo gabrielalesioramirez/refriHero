@@ -81,9 +81,9 @@ export const ThermodynamicCyclePreview: React.FC = () => {
   const selectedDetail = stages[activeStage];
 
   return (
-    <div className="bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-5 sm:p-6 lg:p-7 shadow-sm">
+    <div className="bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-5 sm:p-6 lg:p-7 shadow-sm">
       {/* Title bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-frost-100 dark:border-frost-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-frost-100 dark:border-white/10">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-refri-500/10 text-refri-500 dark:text-refri-400">
@@ -101,7 +101,7 @@ export const ThermodynamicCyclePreview: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsFlowActive(!isFlowActive)}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl bg-frost-100 dark:bg-frost-800 hover:bg-frost-200 dark:hover:bg-frost-700 text-frost-700 dark:text-frost-200 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl bg-frost-100 dark:bg-ink-800 hover:bg-frost-200 dark:hover:bg-ink-700 text-frost-700 dark:text-frost-200 border border-transparent dark:border-white/10 transition-colors"
           >
             {isFlowActive ? (
               <>
@@ -121,7 +121,7 @@ export const ThermodynamicCyclePreview: React.FC = () => {
       {/* Main Diagram Area */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-center">
         {/* SVG Interactive Circuit (7 cols) */}
-        <div className="lg:col-span-7 bg-frost-950/80 rounded-2xl p-4 sm:p-6 border border-frost-800 relative overflow-hidden flex items-center justify-center">
+        <div className="lg:col-span-7 bg-frost-950/80 dark:bg-ink-950 rounded-2xl p-4 sm:p-6 border border-frost-800 dark:border-white/10 relative overflow-hidden flex items-center justify-center">
           {/* Subtle background circuit grid */}
           <div className="absolute inset-0 tech-grid-pattern opacity-40"></div>
 
@@ -318,12 +318,12 @@ export const ThermodynamicCyclePreview: React.FC = () => {
 
         {/* Selected Stage Detail Panel (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-4">
-          <div className="bg-frost-50 dark:bg-frost-950/60 border border-frost-200 dark:border-frost-800 rounded-2xl p-5">
+          <div className="bg-frost-50 dark:bg-ink-950/80 border border-frost-200 dark:border-white/10 rounded-2xl p-5">
             <div className="flex items-center justify-between mb-3">
               <span className={`text-xs font-mono font-bold uppercase tracking-wider ${selectedDetail.textColor}`}>
                 {selectedDetail.name}
               </span>
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-frost-200 dark:bg-frost-800 text-frost-700 dark:text-frost-300 font-semibold">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-frost-200 dark:bg-ink-800 text-frost-700 dark:text-frost-300 font-semibold border border-transparent dark:border-white/5">
                 Estado Interactivo
               </span>
             </div>
@@ -340,7 +340,7 @@ export const ThermodynamicCyclePreview: React.FC = () => {
             </p>
 
             {/* Metric chips */}
-            <div className="space-y-2 pt-3 border-t border-frost-200 dark:border-frost-800/80">
+            <div className="space-y-2 pt-3 border-t border-frost-200 dark:border-white/10">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-frost-500 font-medium flex items-center gap-1.5">
                   <Gauge className="w-3.5 h-3.5 text-refri-500" />
@@ -385,7 +385,7 @@ export const ThermodynamicCyclePreview: React.FC = () => {
                   className={`px-3 py-2 rounded-xl text-xs font-semibold text-left transition-all border ${
                     isSelected
                       ? 'bg-refri-500 text-white border-refri-600 shadow-sm'
-                      : 'bg-frost-100 dark:bg-frost-800/60 text-frost-700 dark:text-frost-300 border-frost-200 dark:border-frost-700/60 hover:bg-frost-200 dark:hover:bg-frost-800'
+                      : 'bg-frost-100 dark:bg-ink-800/70 text-frost-700 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-200 dark:hover:bg-ink-700'
                   }`}
                 >
                   <span className="block text-[10px] opacity-80 uppercase">{s.id}</span>

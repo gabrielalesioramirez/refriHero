@@ -47,7 +47,7 @@ export const CalculatorsModule: React.FC = () => {
   return (
     <div className="space-y-6 animate-fadeIn">
       {/* Module Title & Gas Switcher Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-refri-500/10 text-refri-500 dark:text-refri-400">
@@ -63,10 +63,10 @@ export const CalculatorsModule: React.FC = () => {
         </div>
 
         {/* Selected Gas Badge */}
-        <div className="flex items-center gap-3 self-start sm:self-auto bg-frost-50 dark:bg-frost-950 p-2 rounded-2xl border border-frost-200 dark:border-frost-800">
+        <div className="flex items-center gap-3 self-start sm:self-auto bg-frost-50 dark:bg-ink-950 p-2.5 rounded-2xl border border-frost-200 dark:border-white/10">
           <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: currentGas.colorCode }} />
           <div className="text-xs">
-            <span className="text-frost-500 block text-[10px]">Gas de cálculo</span>
+            <span className="text-frost-500 dark:text-frost-400 block text-[10px]">Gas de cálculo</span>
             <span className="font-bold text-frost-800 dark:text-white">{currentGas.name} ({currentGas.safetyGroup})</span>
           </div>
         </div>
@@ -79,7 +79,7 @@ export const CalculatorsModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap border ${
             activeSubTab === 'sh'
               ? 'bg-refri-500 text-white border-refri-600 shadow-md shadow-refri-500/20'
-              : 'bg-white dark:bg-frost-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-frost-800 hover:bg-frost-50 dark:hover:bg-frost-800'
+              : 'bg-white dark:bg-ink-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-50 dark:hover:bg-ink-800'
           }`}
         >
           <Snowflake className="w-4 h-4" />
@@ -91,7 +91,7 @@ export const CalculatorsModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap border ${
             activeSubTab === 'sc'
               ? 'bg-emerald-500 text-white border-emerald-600 shadow-md shadow-emerald-500/20'
-              : 'bg-white dark:bg-frost-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-frost-800 hover:bg-frost-50 dark:hover:bg-frost-800'
+              : 'bg-white dark:bg-ink-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-50 dark:hover:bg-ink-800'
           }`}
         >
           <Activity className="w-4 h-4" />
@@ -103,7 +103,7 @@ export const CalculatorsModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap border ${
             activeSubTab === 'btu'
               ? 'bg-amber-500 text-white border-amber-600 shadow-md shadow-amber-500/20'
-              : 'bg-white dark:bg-frost-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-frost-800 hover:bg-frost-50 dark:hover:bg-frost-800'
+              : 'bg-white dark:bg-ink-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-50 dark:hover:bg-ink-800'
           }`}
         >
           <Sun className="w-4 h-4" />
@@ -115,7 +115,7 @@ export const CalculatorsModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap border ${
             activeSubTab === 'pt'
               ? 'bg-purple-500 text-white border-purple-600 shadow-md shadow-purple-500/20'
-              : 'bg-white dark:bg-frost-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-frost-800 hover:bg-frost-50 dark:hover:bg-frost-800'
+              : 'bg-white dark:bg-ink-900 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-50 dark:hover:bg-ink-800'
           }`}
         >
           <Gauge className="w-4 h-4" />
@@ -127,8 +127,8 @@ export const CalculatorsModule: React.FC = () => {
       {activeSubTab === 'sh' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Inputs (7 cols) */}
-          <div className="lg:col-span-7 bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-frost-100 dark:border-frost-800">
+          <div className="lg:col-span-7 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-frost-100 dark:border-white/10">
               <h3 className="text-sm font-bold text-frost-900 dark:text-white uppercase tracking-wider font-mono">
                 Parámetros de Entrada (Lado de Baja / Succión)
               </h3>
@@ -199,7 +199,7 @@ export const CalculatorsModule: React.FC = () => {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => { setShPressure(118); setShLineTemp(11.5); }}
-                  className="px-2.5 py-1 text-xs rounded-xl bg-frost-100 dark:bg-frost-800 text-frost-700 dark:text-frost-300 hover:bg-frost-200 font-medium"
+                  className="px-2.5 py-1 text-xs rounded-xl bg-frost-100 dark:bg-ink-800 text-frost-700 dark:text-frost-300 hover:bg-frost-200 dark:hover:bg-ink-700 border border-transparent dark:border-white/5 font-medium"
                 >
                   Condición Normal (SH ~6.5K)
                 </button>
@@ -220,14 +220,14 @@ export const CalculatorsModule: React.FC = () => {
           </div>
 
           {/* Results Card (5 cols) */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-frost-900 dark:to-frost-950 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-ink-900 dark:to-ink-950 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
             <div>
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-frost-500 mb-2">
                 Lectura Termodinámica
               </div>
               
-              <div className="text-center py-4 bg-frost-100/70 dark:bg-frost-950 rounded-2xl border border-frost-200 dark:border-frost-800/80 mb-4">
-                <span className="text-xs text-frost-500 block font-mono">Recalentamiento Calculado</span>
+              <div className="text-center py-4 bg-frost-100/70 dark:bg-ink-950 rounded-2xl border border-frost-200 dark:border-white/10 mb-4">
+                <span className="text-xs text-frost-500 dark:text-frost-400 block font-mono">Recalentamiento Calculado</span>
                 <span className={`text-4xl font-extrabold font-mono tracking-tight ${
                   shResult.statusType === 'success' ? 'text-emerald-500' :
                   shResult.statusType === 'warning' ? 'text-amber-500' : 'text-rose-500'
@@ -246,22 +246,22 @@ export const CalculatorsModule: React.FC = () => {
               </div>
 
               <div className="space-y-2 text-xs">
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">T. Saturación ({currentGas.name}):</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">T. Saturación ({currentGas.name}):</span>
                   <span className="font-mono font-bold text-frost-800 dark:text-white">{shResult.satTempC}°C</span>
                 </div>
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">T. Caño Succión:</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">T. Caño Succión:</span>
                   <span className="font-mono font-bold text-frost-800 dark:text-white">{shLineTemp}°C</span>
                 </div>
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">Rango Recomendado:</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">Rango Recomendado:</span>
                   <span className="font-mono font-bold text-emerald-500">5.0°C a 8.0°C</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 p-3 rounded-2xl bg-frost-100/50 dark:bg-frost-800/40 text-xs text-frost-600 dark:text-frost-300">
+            <div className="mt-4 p-3.5 rounded-2xl bg-frost-100/50 dark:bg-ink-950/90 border border-transparent dark:border-white/10 text-xs text-frost-600 dark:text-frost-300">
               <strong className="text-frost-900 dark:text-white block mb-0.5">Diagnóstico Técnico:</strong>
               {shResult.explanation}
             </div>
@@ -273,8 +273,8 @@ export const CalculatorsModule: React.FC = () => {
       {activeSubTab === 'sc' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Inputs (7 cols) */}
-          <div className="lg:col-span-7 bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-frost-100 dark:border-frost-800">
+          <div className="lg:col-span-7 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-frost-100 dark:border-white/10">
               <h3 className="text-sm font-bold text-frost-900 dark:text-white uppercase tracking-wider font-mono">
                 Parámetros de Entrada (Lado de Alta / Descarga)
               </h3>
@@ -345,7 +345,7 @@ export const CalculatorsModule: React.FC = () => {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => { setScPressure(365); setScLineTemp(39.5); }}
-                  className="px-2.5 py-1 text-xs rounded-xl bg-frost-100 dark:bg-frost-800 text-frost-700 dark:text-frost-300 hover:bg-frost-200 font-medium"
+                  className="px-2.5 py-1 text-xs rounded-xl bg-frost-100 dark:bg-ink-800 text-frost-700 dark:text-frost-300 hover:bg-frost-200 dark:hover:bg-ink-700 border border-transparent dark:border-white/5 font-medium"
                 >
                   Subcooling Normal (~5.5K)
                 </button>
@@ -366,14 +366,14 @@ export const CalculatorsModule: React.FC = () => {
           </div>
 
           {/* Results Card (5 cols) */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-frost-900 dark:to-frost-950 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-ink-900 dark:to-ink-950 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
             <div>
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-frost-500 mb-2">
                 Lectura Termodinámica
               </div>
               
-              <div className="text-center py-4 bg-frost-100/70 dark:bg-frost-950 rounded-2xl border border-frost-200 dark:border-frost-800/80 mb-4">
-                <span className="text-xs text-frost-500 block font-mono">Subenfriamiento Calculado</span>
+              <div className="text-center py-4 bg-frost-100/70 dark:bg-ink-950 rounded-2xl border border-frost-200 dark:border-white/10 mb-4">
+                <span className="text-xs text-frost-500 dark:text-frost-400 block font-mono">Subenfriamiento Calculado</span>
                 <span className={`text-4xl font-extrabold font-mono tracking-tight ${
                   scResult.statusType === 'success' ? 'text-emerald-500' :
                   scResult.statusType === 'warning' ? 'text-amber-500' : 'text-rose-500'
@@ -392,22 +392,22 @@ export const CalculatorsModule: React.FC = () => {
               </div>
 
               <div className="space-y-2 text-xs">
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">T. Saturación Condensación:</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">T. Saturación Condensación:</span>
                   <span className="font-mono font-bold text-frost-800 dark:text-white">{scResult.satTempC}°C</span>
                 </div>
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">T. Línea de Líquido:</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">T. Línea de Líquido:</span>
                   <span className="font-mono font-bold text-frost-800 dark:text-white">{scLineTemp}°C</span>
                 </div>
-                <div className="flex justify-between p-2 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800">
-                  <span className="text-frost-500">Rango Recomendado:</span>
+                <div className="flex justify-between p-2.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10">
+                  <span className="text-frost-500 dark:text-frost-400">Rango Recomendado:</span>
                   <span className="font-mono font-bold text-emerald-500">4.0°C a 8.0°C</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 p-3 rounded-2xl bg-frost-100/50 dark:bg-frost-800/40 text-xs text-frost-600 dark:text-frost-300">
+            <div className="mt-4 p-3.5 rounded-2xl bg-frost-100/50 dark:bg-ink-950/90 border border-transparent dark:border-white/10 text-xs text-frost-600 dark:text-frost-300">
               <strong className="text-frost-900 dark:text-white block mb-0.5">Diagnóstico Técnico:</strong>
               {scResult.explanation}
             </div>
@@ -418,14 +418,14 @@ export const CalculatorsModule: React.FC = () => {
       {/* Tab 3: Thermal Load Frigorias */}
       {activeSubTab === 'btu' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-7 bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm space-y-4">
-            <h3 className="text-sm font-bold text-frost-900 dark:text-white uppercase tracking-wider font-mono pb-2 border-b border-frost-100 dark:border-frost-800">
+          <div className="lg:col-span-7 bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">
+            <h3 className="text-sm font-bold text-frost-900 dark:text-white uppercase tracking-wider font-mono pb-2 border-b border-frost-100 dark:border-white/10">
               Datos del Recinto para Balance Térmico
             </h3>
 
             <div>
               <div className="flex justify-between text-xs font-semibold mb-1">
-                <span>Superficie de la Habitación:</span>
+                <span className="text-frost-700 dark:text-frost-300">Superficie de la Habitación:</span>
                 <span className="font-mono text-refri-500 font-bold">{areaM2} m²</span>
               </div>
               <input
@@ -445,7 +445,7 @@ export const CalculatorsModule: React.FC = () => {
 
             <div>
               <div className="flex justify-between text-xs font-semibold mb-1">
-                <span>Ocupantes habituales:</span>
+                <span className="text-frost-700 dark:text-frost-300">Ocupantes habituales:</span>
                 <span className="font-mono text-refri-500 font-bold">{peopleCount} personas</span>
               </div>
               <input
@@ -465,7 +465,7 @@ export const CalculatorsModule: React.FC = () => {
 
             <div>
               <div className="flex justify-between text-xs font-semibold mb-1">
-                <span>Aparatos Eléctricos / Iluminación:</span>
+                <span className="text-frost-700 dark:text-frost-300">Aparatos Eléctricos / Iluminación:</span>
                 <span className="font-mono text-refri-500 font-bold">{electronicsW} Watts</span>
               </div>
               <input
@@ -485,7 +485,7 @@ export const CalculatorsModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-semibold block mb-1.5">Incidencia Solar en la Estancia:</label>
+              <label className="text-xs font-semibold text-frost-700 dark:text-frost-300 block mb-1.5">Incidencia Solar en la Estancia:</label>
               <div className="grid grid-cols-3 gap-2">
                 {(['baja', 'media', 'alta'] as const).map((lvl) => (
                   <button
@@ -494,7 +494,7 @@ export const CalculatorsModule: React.FC = () => {
                     className={`py-2 px-3 rounded-xl text-xs font-bold capitalize transition-all border ${
                       sunExposure === lvl
                         ? 'bg-amber-500 text-white border-amber-600'
-                        : 'bg-frost-100 dark:bg-frost-800 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-frost-700'
+                        : 'bg-frost-100 dark:bg-ink-800 text-frost-600 dark:text-frost-300 border-frost-200 dark:border-white/10 hover:bg-frost-200 dark:hover:bg-ink-700'
                     }`}
                   >
                     {lvl === 'baja' ? 'Baja (50 fg/m²)' : lvl === 'media' ? 'Media (60 fg/m²)' : 'Alta (70 fg/m²)'}
@@ -504,14 +504,14 @@ export const CalculatorsModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-frost-900 dark:to-frost-950 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-b from-white to-frost-50 dark:from-ink-900 dark:to-ink-950 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
             <div>
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-frost-500">
                 Capacidad Térmica Necesaria
               </span>
 
-              <div className="mt-3 p-4 bg-frost-100/70 dark:bg-frost-950 rounded-2xl border border-frost-200 dark:border-frost-800 text-center">
-                <span className="text-xs text-frost-500 font-mono block">Potencia de Frío Estimada</span>
+              <div className="mt-3 p-4 bg-frost-100/70 dark:bg-ink-950 rounded-2xl border border-frost-200 dark:border-white/10 text-center">
+                <span className="text-xs text-frost-500 dark:text-frost-400 font-mono block">Potencia de Frío Estimada</span>
                 <span className="text-4xl font-extrabold font-mono text-amber-500">
                   {thermalResult.frigoriasTotal.toLocaleString()} <span className="text-lg">Frigorías/h</span>
                 </span>
@@ -519,14 +519,14 @@ export const CalculatorsModule: React.FC = () => {
                   ({thermalResult.frigoriasTotal.toLocaleString()} kcal/h)
                 </span>
 
-                <div className="flex flex-wrap justify-center gap-2 mt-3 pt-3 border-t border-frost-200 dark:border-frost-800 font-mono text-xs font-semibold text-frost-600 dark:text-frost-300">
-                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-frost-800">~ {thermalResult.trTotal} TR</span>
-                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-frost-800">~ {thermalResult.kwTotal} kW</span>
-                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-frost-800 text-frost-500">~ {thermalResult.btuTotal.toLocaleString()} BTU/h</span>
+                <div className="flex flex-wrap justify-center gap-2 mt-3 pt-3 border-t border-frost-200 dark:border-white/10 font-mono text-xs font-semibold text-frost-600 dark:text-frost-300">
+                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-ink-800 border border-transparent dark:border-white/5">~ {thermalResult.trTotal} TR</span>
+                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-ink-800 border border-transparent dark:border-white/5">~ {thermalResult.kwTotal} kW</span>
+                  <span className="px-2 py-0.5 rounded bg-frost-200 dark:bg-ink-800 border border-transparent dark:border-white/5 text-frost-500 dark:text-frost-400">~ {thermalResult.btuTotal.toLocaleString()} BTU/h</span>
                 </div>
               </div>
 
-              <div className="mt-4 p-3 rounded-xl bg-frost-50 dark:bg-frost-900 border border-frost-200 dark:border-frost-800 text-xs">
+              <div className="mt-4 p-3.5 rounded-xl bg-frost-50 dark:bg-ink-900 border border-frost-200 dark:border-white/10 text-xs">
                 <div className="font-bold text-frost-900 dark:text-white mb-1">
                   Equipo Comercial Recomendado:
                 </div>
@@ -549,25 +549,25 @@ export const CalculatorsModule: React.FC = () => {
 
       {/* Tab 4: PT Chart & Lookup */}
       {activeSubTab === 'pt' && (
-        <div className="bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-3xl p-6 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-frost-100 dark:border-frost-800 mb-6">
+        <div className="bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-frost-100 dark:border-white/10 mb-6">
             <div>
               <h3 className="text-base font-bold text-frost-900 dark:text-white">
                 Conversor Presión - Temperatura de Saturación (P-T)
               </h3>
-              <p className="text-xs text-frost-500">
+              <p className="text-xs text-frost-500 dark:text-frost-400">
                 Calcula la temperatura de ebullición/condensación exacta para <strong className="text-refri-500">{currentGas.name}</strong>.
               </p>
             </div>
 
             {/* Interactive Single Input */}
-            <div className="flex items-center gap-2 bg-frost-50 dark:bg-frost-950 p-2 rounded-2xl border border-frost-200 dark:border-frost-800">
+            <div className="flex items-center gap-2 bg-frost-50 dark:bg-ink-950 p-2.5 rounded-2xl border border-frost-200 dark:border-white/10">
               <span className="text-xs font-semibold text-frost-600 dark:text-frost-300">Presión:</span>
               <input
                 type="number"
                 value={ptPressureInput}
                 onChange={(e) => setPtPressureInput(Math.max(0, Number(e.target.value)))}
-                className="w-20 px-2 py-1 text-sm font-mono font-bold bg-white dark:bg-frost-900 rounded-lg border border-frost-300 dark:border-frost-700 text-frost-900 dark:text-white focus:outline-none"
+                className="w-20 px-2 py-1 text-sm font-mono font-bold bg-white dark:bg-ink-900 rounded-lg border border-frost-300 dark:border-white/10 text-frost-900 dark:text-white focus:outline-none"
               />
               <span className="text-xs font-mono text-frost-500">psig</span>
               <span className="mx-1 text-frost-400">➜</span>
@@ -578,7 +578,7 @@ export const CalculatorsModule: React.FC = () => {
           {/* Quick PT reference matrix for all gases at key pressures */}
           <div className="overflow-x-auto">
             <table className="w-full text-xs text-left">
-              <thead className="bg-frost-50 dark:bg-frost-950 text-frost-500 font-mono uppercase text-[11px]">
+              <thead className="bg-frost-50 dark:bg-ink-950 text-frost-500 dark:text-frost-400 font-mono uppercase text-[11px]">
                 <tr>
                   <th className="py-2.5 px-3 rounded-l-xl">Refrigerante</th>
                   <th className="py-2.5 px-3">Seguridad</th>
@@ -588,22 +588,22 @@ export const CalculatorsModule: React.FC = () => {
                   <th className="py-2.5 px-3 rounded-r-xl">Alta Inverter (380 psig)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-frost-100 dark:divide-frost-800/60 font-mono">
+              <tbody className="divide-y divide-frost-100 dark:divide-white/5 font-mono">
                 {REFRIGERANTS.map((gas) => (
                   <tr key={gas.id} className={gas.id === selectedRefrigerantId ? 'bg-refri-500/10 font-bold' : ''}>
                     <td className="py-3 px-3 flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: gas.colorCode }}></span>
-                      <span>{gas.name}</span>
+                      <span className="text-frost-800 dark:text-frost-200">{gas.name}</span>
                     </td>
                     <td className="py-3 px-3">
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-frost-200 dark:bg-frost-800 text-frost-800 dark:text-frost-200">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-frost-200 dark:bg-ink-800 text-frost-800 dark:text-frost-200 border border-transparent dark:border-white/5">
                         {gas.safetyGroup}
                       </span>
                     </td>
-                    <td className="py-3 px-3">{Math.round(getSaturationTempC(gas.id, 60) * 10) / 10}°C</td>
-                    <td className="py-3 px-3">{Math.round(getSaturationTempC(gas.id, 120) * 10) / 10}°C</td>
-                    <td className="py-3 px-3">{Math.round(getSaturationTempC(gas.id, 250) * 10) / 10}°C</td>
-                    <td className="py-3 px-3">{Math.round(getSaturationTempC(gas.id, 380) * 10) / 10}°C</td>
+                    <td className="py-3 px-3 text-frost-700 dark:text-frost-300">{Math.round(getSaturationTempC(gas.id, 60) * 10) / 10}°C</td>
+                    <td className="py-3 px-3 text-frost-700 dark:text-frost-300">{Math.round(getSaturationTempC(gas.id, 120) * 10) / 10}°C</td>
+                    <td className="py-3 px-3 text-frost-700 dark:text-frost-300">{Math.round(getSaturationTempC(gas.id, 250) * 10) / 10}°C</td>
+                    <td className="py-3 px-3 text-frost-700 dark:text-frost-300">{Math.round(getSaturationTempC(gas.id, 380) * 10) / 10}°C</td>
                   </tr>
                 ))}
               </tbody>

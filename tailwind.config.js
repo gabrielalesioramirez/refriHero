@@ -8,6 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Neutral graphite palette (navbar, hero, cards, footer)
+        ink: {
+          600: '#4a525f',
+          700: '#3a414d',
+          800: '#2b313b',
+          900: '#21262e',
+          950: '#171b21',
+        },
         refri: {
           50: '#f0f9ff',
           100: '#e0f2fe',

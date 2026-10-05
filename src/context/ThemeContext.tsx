@@ -14,7 +14,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setThemeState] = useState<Theme>(() => {
     const saved = localStorage.getItem('refrihero-theme');
     if (saved === 'dark' || saved === 'light') return saved;
-    return 'dark'; // Default technical dark mode
+    return 'light'; // Default light body with graphite hero/cards
   });
 
   useEffect(() => {

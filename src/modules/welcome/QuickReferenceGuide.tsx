@@ -8,7 +8,7 @@ export const QuickReferenceGuide: React.FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* Card 1: Golden Rules */}
-      <div className="bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-2xl p-5 shadow-sm">
+      <div className="bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-2.5 mb-3">
           <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500">
             <CheckCircle2 className="w-5 h-5" />
@@ -34,7 +34,7 @@ export const QuickReferenceGuide: React.FC = () => {
       </div>
 
       {/* Card 2: ASHRAE Safety Class */}
-      <div className="bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-2xl p-5 shadow-sm">
+      <div className="bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-2.5 mb-3">
           <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500">
             <ShieldCheck className="w-5 h-5" />
@@ -44,15 +44,15 @@ export const QuickReferenceGuide: React.FC = () => {
           </h3>
         </div>
         <div className="space-y-2 text-xs">
-          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-frost-950/60 border border-frost-100 dark:border-frost-800">
+          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-ink-950/70 border border-frost-100 dark:border-white/5">
             <span className="font-mono font-bold text-emerald-500">A1</span>
             <span className="text-frost-600 dark:text-frost-300">No tóxico, No inflamable (R-410A, R-134a)</span>
           </div>
-          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-frost-950/60 border border-frost-100 dark:border-frost-800">
+          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-ink-950/70 border border-frost-100 dark:border-white/5">
             <span className="font-mono font-bold text-amber-500">A2L</span>
             <span className="text-frost-600 dark:text-frost-300">Baja toxicidad, Baja inflamabilidad (R-32)</span>
           </div>
-          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-frost-950/60 border border-frost-100 dark:border-frost-800">
+          <div className="flex items-center justify-between p-2 rounded-lg bg-frost-50 dark:bg-ink-950/70 border border-frost-100 dark:border-white/5">
             <span className="font-mono font-bold text-rose-500">A3</span>
             <span className="text-frost-600 dark:text-frost-300">Alta inflamabilidad (R-290 Propano, R-600a)</span>
           </div>
@@ -60,7 +60,7 @@ export const QuickReferenceGuide: React.FC = () => {
       </div>
 
       {/* Card 3: Professor / Student Guidance */}
-      <div className="bg-white dark:bg-frost-900 border border-frost-200 dark:border-frost-800 rounded-2xl p-5 shadow-sm">
+      <div className="bg-white dark:bg-ink-900 border border-frost-200 dark:border-white/10 rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-2.5 mb-3">
           <div className="p-2 rounded-xl bg-refri-500/10 text-refri-500">
             <Thermometer className="w-5 h-5" />
