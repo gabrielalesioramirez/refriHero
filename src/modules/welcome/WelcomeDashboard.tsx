@@ -68,7 +68,7 @@ export const WelcomeDashboard: React.FC = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-tight tracking-tight">
               Domina la Refrigeración
               <br />
-              con Refri<span className="text-frost-200">-Master</span>
+              con Refri<span className="text-frost-200">Hero</span>
             </h1>
             <p className="mt-5 text-frost-300 text-base sm:text-lg leading-relaxed max-w-xl">
               Plataforma de formación técnica avanzada para profesionales del frío. Aprende, simula y certifica tus conocimientos.

@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
             </svg>
           </span>
           <span className="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-0.5">
-            Refri<span className="text-frost-200">-Master</span>
+            Refri<span className="text-frost-200">Hero</span>
           </span>
         </button>
 
